@@ -7,6 +7,6 @@ public class ExercicioController {
 
     @GetMapping
     public String HelloWord(){
-        return "Hello";
+        return "Seunome";
     }
 }

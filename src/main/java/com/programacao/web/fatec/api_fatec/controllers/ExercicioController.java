@@ -32,8 +32,8 @@ public class ExercicioController {
 
     @GetMapping("/ex1/{text}")
     String contarCaracteres(@PathVariable String text) {
-        Integer qtdCar = new StringBuilder(text).length();
-        return "Quantidade de Caracteres: " + String.valueOf(qtdCar);
+        int qtdCar = text.length();
+        return "Quantidade de Caracteres: " + qtdCar;
     }
 
     @GetMapping("/ex2/{idade}")

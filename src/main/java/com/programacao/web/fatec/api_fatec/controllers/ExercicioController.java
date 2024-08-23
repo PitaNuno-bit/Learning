@@ -30,5 +30,24 @@ public class ExercicioController {
         }
     }
 
+    @GetMapping("/ex1/{text}")
+    String contarCaracteres(@PathVariable String text) {
+        Integer qtdCar = new StringBuilder(text).length();
+        return "Quantidade de Caracteres: " + String.valueOf(qtdCar);
+    }
 
+    @GetMapping("/ex2/{idade}")
+    String verificarIdade(@PathVariable Integer idade) {
+        if (idade < 0){
+            return "Idade Inválida";
+        } else if (idade < 12){
+            return "Criança";
+        } else if (idade < 18){
+            return "Adolescente";
+        } else if (idade < 60){
+            return "Adulto";
+        } else {
+            return "Idoso";
+        }
+    }
 }

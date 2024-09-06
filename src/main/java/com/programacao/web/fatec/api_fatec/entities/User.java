@@ -1,4 +1,4 @@
-package com.fatec.controle_financeiro.entities;
+package com.programacao.web.fatec.api_fatec.entities;
 
 public class User {
     private String name;

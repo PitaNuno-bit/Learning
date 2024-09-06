@@ -11,7 +11,7 @@ import com.fatec.controle_financeiro.entities.User;
 @RequestMapping("/api/usuario")
 public class UsuarioController {
     
-    //http://localhost:<port>/api/usuario/register
+    //http://localhost:<port>/api/usuario/registers
     //POST
     //Parametro: @RequestBody => enviar no corpo da requisicao (body)
     @PostMapping("/register")

@@ -2,10 +2,12 @@ package com.programacao.web.fatec.api_fatec.entities;
 
 public class User {
     private String name;
-    private int age;
+    private Integer age;
 
     // Construtor padrão
-    public User() {
+    public User(String name, Integer age) {
+        this.name = name;
+        this.age = age;
     }
 
     // Getters e Setters
@@ -17,7 +19,7 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 

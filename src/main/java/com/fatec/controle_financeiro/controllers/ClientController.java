@@ -2,38 +2,34 @@ package com.fatec.controle_financeiro.controllers;
  
 import java.util.ArrayList;
 import java.util.List;
- 
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
- 
+
+import com.fatec.controle_financeiro.domain.client.ClientRepository;
 import com.fatec.controle_financeiro.entities.Client;
  
 @RestController
 @RequestMapping("/api/client")
 public class ClientController {
     private List<Client> clients = new ArrayList<>();
-    private int proximoId = 1;
- 
+    
+    @Autowired
+    private ClientRepository clientRepository;
     // CREATE
     @PostMapping
-    public ResponseEntity<Client> createClient(@RequestBody Client client) {
-        for (Client c : clients) {
-            if (c.getName().equalsIgnoreCase(client.getName())) {
-                throw new IllegalArgumentException("Já existe um cliente com esse nome.");
-            }
-        }
- 
-        client.setId(proximoId++);
-        clients.add(client);
- 
-        return new ResponseEntity<>(client, HttpStatus.CREATED);
+    public ResponseEntity<Client> create(@RequestBody Client client) {
+        Client clientCreated = clientRepository.save(client);
+        return new ResponseEntity<>(clientCreated, HttpStatus.CREATED);
     }
  
     // READ - Todos
     @GetMapping
     public ResponseEntity<List<Client>> getAllClients() {
-        return new ResponseEntity<>(clients, HttpStatus.OK);
+        List<Client> clientes = clientRepository.findAll();
+        return new ResponseEntity<>(clientes, HttpStatus.CREATED);
     }
  
     // READ - ID

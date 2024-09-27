@@ -1,16 +1,31 @@
 package com.fatec.controle_financeiro.entities;
- 
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "clientes")
 public class Client {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(nullable = false, length = 60) 
     private String name;
  
-    public Client() {
+    public Client(){
+
     }
  
     // Construtor
-    public Client(int id, String nome) {
+    public Client(int id, String name) {
         this.id = id;
-        this.name = nome;
+        this.name = name;
     }
  
     // Métodos
